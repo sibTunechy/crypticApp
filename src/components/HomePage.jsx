@@ -1,15 +1,15 @@
 import React from 'react';
 import millify from 'millify';
-import {Typography, Row, Col, Statistic} from 'antd';
+import {Typography, Row, Col, Statistic } from 'antd';
 import {Link} from 'react-router-dom';
 import { useGetCryptosQuery } from '../services/cryptoApi';
 import {Cryptocurrencies, News} from '../components/dex';
 
 
-const { Title } = Typography
+const { Title } = Typography     // destructured Title from Typography//
 
 
-const HomePage = () => {
+const HomePage = () =>  {
   const { data, isFetching } =  useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
   // console.log(data)
@@ -29,7 +29,7 @@ const HomePage = () => {
           <Title level={2} className='home-title'>Top 10 Cryptocurrencies in the World</Title>
           <Title level={3} className='show-more'><Link to='/cryptocurrencies'>Show More</Link></Title>
       </div>
-      <Cryptocurrencies simplified/>
+      <Cryptocurrencies simplified={true}/>
       <div className='home-heading-container'>
           <Title level={2} className='home-title'>Latest Crypto News</Title>
           <Title level={3} className='show-more'><Link to='/news'>Show More</Link></Title>
